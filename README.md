@@ -16,14 +16,17 @@ Indien de execution policy van powershell zeer restrictief staat, moeten het scr
 
 
 U I T V O E R I N G
--Open powershell en navigeer middels cd.. etc naar de directory waar het script en de executable staan.
+-Open powershell en navigeer middels cd.. etc naar de directory waar het script en de executable staan.
+
 -Om de uitkomst in een CSV te krijgen ipv enkel op het scherm, moet de uitkomst van het script gepiped worden naar de export-csv functie. Dit gaat door het volgende commando:
 	
 	Set-ExecutionPolicy -ExecutionPolicy UnRestricted
 
-	.\get-jkportscan-v1.71.ps1 | Export-Csv connectiviteit_ns00dc038_20141023.csv -Delimiter ';'
+	.\get-jkportscan.ps1 | export-csv .\portqry-NS01DC042-20150304-112100.csv -NoTypeInformation -Delimiter ';'
 
 De laatste switch -delimiter is gedaan zodat er eenvoudig in excel gesplitst kan worden. Zo herkent excel de kolommen. Het bestand wordt in de werkdirectory aangemaakt.
+
+
 
 -Tijdens de uitvoering wordt de voortgang laten zien. Na afloop staat de CSV met de gekozen naam in de werkdirectory. Van hieruit kan deze naar excel gebracht worden.
 
